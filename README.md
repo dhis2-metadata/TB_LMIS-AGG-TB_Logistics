@@ -1,2 +1,1 @@
-# TB_LMIS-AGG-TB_Logistics
-TB Logistics Aggregate metadata package
+# TB Logistics - Aggregate metadata package
