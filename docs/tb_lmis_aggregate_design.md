@@ -1,6 +1,6 @@
-# TB logistics
+## TB logistics
 
-## TB logistics design
+### TB logistics design
 
 The logistics metadata is designed to be harmonized conceptually across different health programmes. To ease the adoption of these packages in countries, we have included the program-specific metadata into existing DHIS2 metadata for TB programmes. The aggregate HMIS package for malaria therefore includes:
 
@@ -10,13 +10,13 @@ The logistics metadata is designed to be harmonized conceptually across differen
 
 This document is intended for use by DHIS2 implementers at country and regional level to be able to support implementation and localization of the package. Local data flows and national guidelines should be considered in the localization and adoption of the programs included in this package.
 
-### Intended users
+#### Intended users
 
 - **Health facility users**: capture and report key logistics data for specific health programs. The Facility Stock Report is generally used by pharmacists and storekeepers for recording all essential stock data at the health care facility at the end of every month. Storekeepers maintain their usual paper documentation such as stock cards and bin cards for recording stock receipts and stock issues. At the end of every month, data from these records is entered into DHIS2 for sharing data.
 
 - **National and sub-national (e.g. district level) programme managers**: for monitoring overall health programme performance, analyzing and cross-referencing logistics and health service delivery data to make informed decisions about programmatic interventions
 
-### Data Sets
+#### Data Sets
 
 Different stock data sets have been configured for each health programme. The decision to create a new dataset instead of including on the HMIS data entry form was taken because:
 
@@ -25,11 +25,11 @@ Different stock data sets have been configured for each health programme. The de
 
 It is recommended that the dataset is assigned to Organisation Units **at the lowest level** of the health system feasible for reporting data, such as health facilities or community health workers.
 
-### Data Entry Form (facility reporting)
+#### Data Entry Form (facility reporting)
 
 After selecting the required Organization Unit and selecting the "Facility Stock Report" Data Set a separate table for reporting logistics data will be displayed.
 
-![**TB_Dataentry_01**](resources/images/TB_Dataentry_01.png)
+![TB Dataentry](resources/images/TB_Dataentry_01.png)
 
 The list of items will be the same throughout the different tabs.
 The "Opening balance" field will automatically display the Stock on hand from the last day of the previous month.
@@ -42,9 +42,10 @@ DHIS2 will calculate the "Closing balance" instantly as values are entered in th
 
 Finally, the storekeeper will review the stock records and count the number of days during the reporting period on which the respective health product was out of stock at any time or for any period of the day.
 
-### TB logistics analytics
+#### TB logistics analytics
 
 The TB logistics configuration supports core/cross-cutting logistics indicators described in the common metadata framework and logistics performance monitoring indicators. From the data captured, we can also calculate the following indicators which are recommended by the WHO TB Programme for integrated analysis alongside indicators contained in the WHO HMIS health programmes packages.
+
 | LMIS TB Indicator                                              | Numerator                                                               | Denominator                                                                          |
 |----------------------------------------------------------------|-------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | GeneXpert cartridges stock discrepancy (%)                     | stock on hand-(received+opening balance-discarded-issued-redistributed) | stock on hand                                                                        |
@@ -60,11 +61,11 @@ The TB logistics configuration supports core/cross-cutting logistics indicators 
 | Health facilities with DR-TB drugs stock-out days (%)          | facilities with stock-out days reported                                 | Facilities with stock-out days reported + facilities without stock-out days reported |
 | Health facilities with DS-TB drugs stock-out days (%)          | facilities with stock-out days reported                                 | Facilities with stock-out days reported + facilities without stock-out days reported |
 
-### Stock Dashboard
+#### Stock Dashboard
 
 The dashboard has a first dialog window with some key definitions to facilitate the reading and interpretation of the data.
 
-![**TB_Dashboard01_02**](resources/images/TB_Dashboard01_02.png)
+![TB Dashboard 01](resources/images/TB_Dashboard01_02.png)
 
 The structure is consistent throughout the dashboard:
 
@@ -78,11 +79,11 @@ The structure is consistent throughout the dashboard:
 
 - A graph with the proportion of facilities reporting stock-out days
 
-![TB_Dashboard02_03](resources/images/TB_Dashboard02_03.png)
+![TB Dashboard 02](resources/images/TB_Dashboard02_03.png)
 
 Extra items will be available depending on the possibility to triangulate HMIS vs LMIS data.
 
-### Validation
+#### Validation
 
 The following data validation rules have been configured.
 
@@ -104,13 +105,13 @@ The following data validation rules have been configured.
 | TB - GenExpert Cartridges stock on hand<=GenExpert Cartridges opening balance + GenExpert Cartridges received | GenExpert Cartridges stock on hand should be less than or equal to GenExpert Cartridges opening balance + GenExpert Cartridges received | less_than_or_equal_to | GenExpert Cartridges stock on hand | GenExpert Cartridges opening balance + GenExpert Cartridges received |
 | TB - DS-TB drugs stock on hand<=DS-TB drugs opening balance + DS-TB drugs received                            | DS-TB drugs stock on hand should be less than or equal to DS-TB drugs opening balance + DS-TB drugs received                            | less_than_or_equal_to | DS-TB drugs stock on hand          | DS-TB drugs opening balance + DS-TB drugs received                   |
 
-### User Groups
+#### User Groups
 
 In addition to the regular Admin and access user profiles, the LMIS dataset brings an extra user group:
 Stock data capture: designed to enable access to the facility level reporter that is responsible for stock reporting; depending on local context, this may or may not be the same person that is responsible for monthly reporting of health services data  --> **TB stock data capture**
 
 Please refer to the installation guidance for more information on the other user groups.
 
-### Customizing Data Entry Forms
+#### Customizing Data Entry Forms
 
 The dataset in this package does not contain a custom form. However, many countries may require a custom form interface to more closely match paper records and forms used in countries; and to facilitate a more intuitive user interface for the data entry user. To improve the usability of the form for data entry, implementers may design a custom form to meet their needs by following the DHIS2 User manual: [Manage Custom Forms](#manage_customform)
